@@ -1,10 +1,11 @@
 import MenuItem from "./components/MenuItem"
+import OrderItems from "./components/OrderItems"
 import { menuItems } from "./data/db"
 import { useOrder } from "./hooks/useOrder"
 
 function App() {
 
-  const { addItem } = useOrder()
+  const { order, addItem } = useOrder()
 
   return (
     <>
@@ -26,8 +27,10 @@ function App() {
           </div>
         </div>
 
-        <div>
-          <h2>Order</h2>
+        <div className="border-2 border-white border-dotted rounded-xl">
+          <OrderItems
+            order={order}
+          />
 
         </div>
 
