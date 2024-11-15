@@ -18,10 +18,13 @@ export function useOrder() {
         }
     }
 
-    console.log(order)
+    function deleteItem(id: MenuItem['id']) {
+        console.log("Deleting item", id)
+    }
 
     return {
         order,
-        addItem
+        addItem,
+        deleteItem
     }
 }

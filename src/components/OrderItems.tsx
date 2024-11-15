@@ -1,11 +1,12 @@
-import { OrderItem } from "../types"
+import { MenuItem, OrderItem } from "../types"
 import { formatPrice } from "../helpers"
 
 type OrderItemsProps = {
     order: OrderItem[]
+    deleteItem: (id: MenuItem['id']) => void
 }
 
-export default function OrderItems({ order }: OrderItemsProps) {
+export default function OrderItems({ order, deleteItem }: OrderItemsProps) {
 
     return (
         <>
@@ -14,9 +15,16 @@ export default function OrderItems({ order }: OrderItemsProps) {
                 {order.map(item => (item.quantity === 0 ?
                     <p className="text-opacity-50">Select something to order</p> :
                     (
-                        <div className="border-2 border-solid border-white bg-gray-300">
-                            <p className="text-lg font-black">{item.name} - {formatPrice(item.price)} </p>
-                            <p>Quantity: {item.quantity}</p>
+                        <div className="flex justify-between p-4 border-t-2 border-white last-of-type:border-b-2">
+                            <div>
+                                <p className="text-lg font-black">{item.name} - {formatPrice(item.price)} </p>
+                                <p>Quantity: {item.quantity}</p>
+                            </div>
+
+                            <button className="h-8 w-8 bg-black text-white rounded-full"
+                                onClick={() => { deleteItem(item.id) }}>
+                                X
+                            </button>
                         </div>
                     )
                 ))}
