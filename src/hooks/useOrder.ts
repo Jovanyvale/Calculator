@@ -19,7 +19,8 @@ export function useOrder() {
     }
 
     function deleteItem(id: MenuItem['id']) {
-        console.log("Deleting item", id)
+        const filteredOrder: OrderItem[] = order.filter(item => item.id != id)
+        setOrder(filteredOrder)
     }
 
     return {
