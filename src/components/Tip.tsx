@@ -1,10 +1,4 @@
-type Tips = {
-    id: number
-    value: number
-    label: string
-}
-
-const tips: Tips[] = [
+const tips = [
     {
         id: 0,
         value: 0,
@@ -30,12 +24,11 @@ const tips: Tips[] = [
     }
 ]
 
-type TipsProps = {
-    setTip: () => void
-    tip: Tips[]
+type TipProps = {
+    setTip: React.Dispatch<React.SetStateAction<number>>
 }
 
-export default function Tip({ setTip, tip }: TipsProps) {
+export default function Tip({ setTip }: TipProps) {
 
     return (
         <>
