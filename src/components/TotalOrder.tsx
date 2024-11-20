@@ -12,7 +12,9 @@ export default function totalOrder({ order }: TotalOrderProps) {
         <>
             <div className="mt-4">
                 <h3 className="font-black">Total</h3>
-                <p>Total expected to pay: <span className="font-black">${totalAmount}</span></p>
+                <p>Subtotal: <span>${totalAmount}</span></p>
+                <p>Tip: <span>$0</span></p>
+                <p className="text-xl">Total: <span className="font-black">$0</span></p>
             </div>
         </>
     )

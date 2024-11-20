@@ -2,7 +2,8 @@ import { useState } from "react";
 import { OrderItem, MenuItem } from "../types";
 
 export function useOrder() {
-    const [order, setOrder] = useState<OrderItem[]>([])
+    const [order, setOrder] = useState<OderItem[]>([])
+    const [tip, setTip] = useState(0)
 
     function addItem(item: MenuItem) {
         const itemExist = order.find(x => x.id == item.id)
