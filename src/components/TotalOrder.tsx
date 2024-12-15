@@ -14,7 +14,7 @@ export default function totalOrder({ order }: TotalOrderProps) {
                 <h3 className="font-black">Total</h3>
                 <p>Subtotal: <span>${totalAmount}</span></p>
                 <p>Tip: <span>$0</span></p>
-                <p className="text-xl">Total: <span className="font-black">$0</span></p>
+                <p className="text-xl">Total: <span className="font-black">0</span></p>
             </div>
         </>
     )

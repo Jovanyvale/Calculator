@@ -26,18 +26,19 @@ const tips = [
 
 type TipProps = {
     setTip: React.Dispatch<React.SetStateAction<number>>
+    tip: number
 }
 
 export default function Tip({ setTip }: TipProps) {
 
     return (
         <>
-            <form action="">
+            <form>
                 <h3 className="font-black">Tip</h3>
                 {tips.map(tip =>
                     <div>
                         <label className="w-12">{tip.label}</label>
-                        <input type="radio" name="tip" value={tip.value} />
+                        <input type="radio" name="tip" value={tip.value} onChange={() => setTip(tip.value)} />
                     </div>
                 )}
             </form>
