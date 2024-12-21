@@ -7,7 +7,7 @@ import { useOrder } from "./hooks/useOrder"
 
 function App() {
 
-  const { order, addItem, deleteItem, setTip, tip } = useOrder()
+  const { order, addItem, deleteItem, setTip, tip, placeOrder } = useOrder()
 
   return (
     <>
@@ -29,22 +29,25 @@ function App() {
           </div>
 
         </div>
-        <div className="border-2 border-white border-dotted rounded-xl">
-          <OrderItems
-            order={order}
-            deleteItem={deleteItem}
-          />
+        <div className="border-2 border-black border-dotted rounded-xl">
+          <div className="m-4">
+            <OrderItems
+              order={order}
+              deleteItem={deleteItem}
+            />
 
-          <TotalOrder
-            order={order}
-          />
+            <Tip
+              setTip={setTip}
+              tip={tip}
+            />
 
-          <Tip
-            setTip={setTip}
-            tip={tip}
-          />
+            <TotalOrder
+              order={order}
+              tip={tip}
+              placeOrder={placeOrder}
+            />
+          </div>
         </div>
-
 
 
       </main>

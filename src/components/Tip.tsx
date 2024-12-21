@@ -29,16 +29,21 @@ type TipProps = {
     tip: number
 }
 
-export default function Tip({ setTip }: TipProps) {
+export default function Tip({ setTip, tip }: TipProps) {
 
     return (
         <>
             <form>
                 <h3 className="font-black">Tip</h3>
-                {tips.map(tip =>
+                {tips.map(tipOption =>
                     <div>
-                        <label className="w-12">{tip.label}</label>
-                        <input type="radio" name="tip" value={tip.value} onChange={() => setTip(tip.value)} />
+                        <label className="w-12">{tipOption.label}</label>
+                        <input
+                            type="radio"
+                            name="tip"
+                            value={tipOption.value}
+                            onChange={() => setTip(tipOption.value)}
+                            checked={tipOption.value === tip} />
                     </div>
                 )}
             </form>

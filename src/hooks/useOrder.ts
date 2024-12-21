@@ -24,11 +24,17 @@ export function useOrder() {
         setOrder(filteredOrder)
     }
 
+    function placeOrder() {
+        setTip(0)
+        setOrder([])
+    }
+
     return {
         tip,
         setTip,
         order,
         addItem,
-        deleteItem
+        deleteItem,
+        placeOrder
     }
 }
