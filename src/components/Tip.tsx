@@ -1,3 +1,5 @@
+import { OrderActions } from "../reducers/order-reducer"
+
 const tips = [
     {
         id: 0,
@@ -25,24 +27,24 @@ const tips = [
 ]
 
 type TipProps = {
-    setTip: React.Dispatch<React.SetStateAction<number>>
+    dispatch: React.Dispatch<OrderActions>
     tip: number
 }
 
-export default function Tip({ setTip, tip }: TipProps) {
+export default function Tip({ dispatch, tip }: TipProps) {
 
     return (
         <>
             <form>
                 <h3 className="font-black">Tip</h3>
                 {tips.map(tipOption =>
-                    <div>
+                    <div key={tipOption.id}>
                         <label className="w-12">{tipOption.label}</label>
                         <input
                             type="radio"
                             name="tip"
                             value={tipOption.value}
-                            onChange={() => setTip(tipOption.value)}
+                            onChange={() => dispatch({ type: 'add-tip', payload: { value: tipOption.value } })}
                             checked={tipOption.value === tip} />
                     </div>
                 )}
