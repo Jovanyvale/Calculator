@@ -9,17 +9,17 @@ type TotalOrderProps = {
     dispatch: React.Dispatch<OrderActions>
 }
 
-export default function totalOrder({ order, tip, dispatch }: TotalOrderProps) {
+export default function TotalOrder({ order, tip, dispatch }: TotalOrderProps) {
 
     const totalAmount = useMemo(() => order.reduce((total, item) => total + (item.quantity * item.price), 0), [order])
-    const tipTotal = useMemo(() => totalAmount * tip, [tip, order])
-    const total = useMemo(() => totalAmount + tipTotal, [tip, totalAmount])
+    const tipTotal = useMemo(() => totalAmount * tip, [totalAmount, tip])
+    const total = useMemo(() => totalAmount + tipTotal, [tipTotal, totalAmount])
 
     return (
         <>
             <div className="mt-4">
                 <h3 className="font-black">Total</h3>
-                <p>Subtotal: <span>${totalAmount}</span></p>
+                <p>Subtotal: <span>${totalAmount.toFixed(2)}</span></p>
                 <p>Tip: <span>{formatPrice(tipTotal)}</span></p>
                 <p className="text-xl">Total: <span className="font-black"> {formatPrice(total)} </span></p>
             </div>

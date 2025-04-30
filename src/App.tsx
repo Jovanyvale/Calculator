@@ -13,13 +13,13 @@ function App() {
 
   return (
     <>
-      <header className="bg-neutral-900 py-5 ">
-        <h1 className="text-white text-center text-4xl">Kitty Cafe</h1>
+      <header className="bg-black py-5 ">
+        <h1 className="text-white text-center text-4xl">Cafe</h1>
       </header>
 
       <main className="max-w-7xl mx-auto my-32 grid gap-4 md:grid-cols-2">
         <div>
-          <h2 className="font-black text-4xl text-center">Menu</h2>
+          <h2 className="font-black text-4xl text-center text-white">Menu</h2>
           <div className="space-y-2 mt-5">
             {menuItems.map(item => (
               <MenuItem
@@ -31,7 +31,7 @@ function App() {
           </div>
 
         </div>
-        <div className="border-2 border-black border-dotted rounded-xl">
+        <div className="border-2 border-black border-dotted rounded-xl bg-white">
           <div className="m-4">
             <OrderItems
               order={state.order}
